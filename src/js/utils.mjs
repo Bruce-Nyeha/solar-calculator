@@ -14,16 +14,16 @@ export function setLocalStorage(key, data) {
 
 // Asynchronously load and render reusable snippets into standard HTML layout nodes
 export async function loadHeaderFooter() {
-  try {
-    const headerResponse = await fetch("/partials/header.html");
-    const footerResponse = await fetch("/partials/footer.html");
-
-    if (!headerResponse.ok || !footerResponse.ok)
-      throw new Error("Partial layout missing.");
-
+  try{ 
+    const headerResponse = await fetch("partials/header.html");
+    const footerResponse = await fetch("partials/footer.html");
+    
+    if (!headerResponse.ok) throw new Error(`Header partial missing status: ${headerResponse.status}`);
+    if (!footerResponse.ok) throw new Error(`Footer partial missing status: ${footerResponse.status}`);
+    
     const headerHtml = await headerResponse.text();
     const footerHtml = await footerResponse.text();
-
+    
     qs("#main-header").innerHTML = headerHtml;
     qs("#main-footer").innerHTML = footerHtml;
   } catch (error) {

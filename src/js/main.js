@@ -1,4 +1,3 @@
-// src/js/main.js
 import { loadHeaderFooter, qs } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 import ApplianceCart from "./ApplianceCart.mjs";
@@ -10,7 +9,7 @@ const SYSTEM_CART = new ApplianceCart("sollichtrise-cart", "#load-list-body");
 let systemState = {
   peakSunHours: null,
   exchangeRate: null,
-  currencyDisplay: "USD", // Default baseline toggle position
+  currencyDisplay: "USD", 
 };
 
 /**
@@ -29,9 +28,7 @@ function updateCurrencyDisplay() {
   }
 }
 
-/**
- * Handles concurrent API fetch operations matching Week 6 criteria
- */
+
 async function syncRegionalMetrics(cityKey) {
   if (!cityKey) return;
 
