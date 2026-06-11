@@ -1,0 +1,28 @@
+{
+  "name": "sollichtrise-calculator",
+  "version": "1.0.0",
+  "description": "Intelligent Solar Appliance Load Calculator & Blueprint Planner tailored for Ghana",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build --emptyOutDir",
+    "lint": "eslint \"src/**/*.js\" \"src/**/*.mjs\"",
+    "format": "prettier --write \"src/**/*.{html,json,js,mjs,css}\""
+  },
+  "author": "Bruce Nyeha",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^8.10.0",
+    "prettier": "^3.2.5",
+    "vite": "^5.4.7"
+  },
+  "browserslist": [
+    "last 3 and_chr versions",
+    "last 3 chrome versions",
+    "last 3 opera versions",
+    "last 3 ios_saf versions",
+    "last 3 safari versions"
+  ]
+}
