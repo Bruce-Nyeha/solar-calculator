@@ -1,0 +1,14 @@
+# Local System and Editor Clutter
+.DS_Store
+.vscode
+.cache
+
+# Package Dependencies (Huge folders that npm installs automatically)
+node_modules
+web_modules
+
+# Vite Production Build Target Folder
+dist
+
+# Crucial Security: Your Private API Token Credentials
+.env

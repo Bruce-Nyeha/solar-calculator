@@ -17,13 +17,13 @@ export async function loadHeaderFooter() {
   try {
     const headerResponse = await fetch("/partials/header.html");
     const footerResponse = await fetch("/partials/footer.html");
-    
+
     if (!headerResponse.ok || !footerResponse.ok)
-       throw new Error("Partial layout missing.");
-    
+      throw new Error("Partial layout missing.");
+
     const headerHtml = await headerResponse.text();
     const footerHtml = await footerResponse.text();
-    
+
     qs("#main-header").innerHTML = headerHtml;
     qs("#main-footer").innerHTML = footerHtml;
   } catch (error) {
