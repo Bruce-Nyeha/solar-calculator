@@ -10,7 +10,7 @@ const SYSTEM_CART = new ApplianceCart("sollichtrise-cart", "#load-list-body");
 let systemState = {
   peakSunHours: null,
   exchangeRate: null,
-  currencyDisplay: "USD" // Default baseline toggle position
+  currencyDisplay: "USD", // Default baseline toggle position
 };
 
 /**
@@ -43,7 +43,7 @@ async function syncRegionalMetrics(cityKey) {
     // Concurrent thread execution pattern ensuring optimized platform delivery speeds
     const [psh, rate] = await Promise.all([
       SERVICES_API.getPeakSunHours(cityKey),
-      SERVICES_API.getLiveExchangeRate()
+      SERVICES_API.getLiveExchangeRate(),
     ]);
 
     systemState.peakSunHours = psh;
@@ -51,7 +51,7 @@ async function syncRegionalMetrics(cityKey) {
 
     // Direct interface data updates
     qs("#display-psh").textContent = `${psh} hrs/day`;
-    
+
     // Trigger currency recalculation view refresh
     updateCurrencyDisplay();
   } catch (err) {
@@ -75,7 +75,7 @@ function setupAppListeners() {
   // Appliance Submission Control
   qs("#appliance-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    
+
     const name = qs("#appliance-name").value;
     const qty = qs("#appliance-qty").value;
     const watts = qs("#appliance-watts").value;
@@ -98,10 +98,10 @@ function setupAppListeners() {
 document.addEventListener("DOMContentLoaded", async () => {
   // Asynchronously inject header and footer layout frameworks
   await loadHeaderFooter();
-  
-  // Start data components 
+
+  // Start data components
   SYSTEM_CART.init();
-  
+
   // Attach event monitoring pipelines
   setupAppListeners();
 });
