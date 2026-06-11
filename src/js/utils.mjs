@@ -2,7 +2,6 @@ export function qs(selector, parent = document) {
   return parent.querySelector(selector);
 }
 
-// Centralized access utilities protecting browser localStorage operations
 export function getLocalStorage(key) {
   const data = localStorage.getItem(key);
   return data ? JSON.parse(data) : [];
@@ -12,11 +11,11 @@ export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
 
-// Asynchronously load and render reusable snippets into standard HTML layout nodes
 export async function loadHeaderFooter() {
-  try{ 
-    const headerResponse = await fetch("partials/header.html");
-    const footerResponse = await fetch("partials/footer.html");
+  try {
+    // FIXED: Using explicit relative sub-directory pathing dots to completely resolve live server 404 blocks
+    const headerResponse = await fetch("./partials/header.html");
+    const footerResponse = await fetch("./partials/footer.html");
     
     if (!headerResponse.ok) throw new Error(`Header partial missing status: ${headerResponse.status}`);
     if (!footerResponse.ok) throw new Error(`Footer partial missing status: ${footerResponse.status}`);
