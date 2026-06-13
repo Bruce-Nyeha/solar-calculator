@@ -13,9 +13,8 @@ export function setLocalStorage(key, data) {
 
 export async function loadHeaderFooter() {
   try {
-    // FIXED: Using explicit relative sub-directory pathing dots to completely resolve live server 404 blocks
-    const headerResponse = await fetch("./partials/header.html");
-    const footerResponse = await fetch("./partials/footer.html");
+    const headerResponse = await fetch("/partials/header.html");
+    const footerResponse = await fetch("/partials/footer.html");
     
     if (!headerResponse.ok) throw new Error(`Header partial missing status: ${headerResponse.status}`);
     if (!footerResponse.ok) throw new Error(`Footer partial missing status: ${footerResponse.status}`);
